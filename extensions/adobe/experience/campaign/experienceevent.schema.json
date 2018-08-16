@@ -273,8 +273,28 @@
             },
             "orchestrationDetails": {
               "title": "Business Reason Details",
-              "$ref": "https://ns.adobe.com/experience/campaign/orchestration/experienceevent#/definitions/journeyContext",
-              "description": "Set of attributes that are associated with every business reason."
+              "description": "Set of attributes that are associated with every business reason.",
+              "type": "object",
+              "properties": {
+                "journey": {
+                  "title": "Journey for an entity",
+                  "$ref": "https://ns.adobe.com/experience/campaign/orchestration/experienceevent#/definitions/journey",
+                  "description": "Journey created by marketer for its entities."
+                },
+                "journeyVersion": {
+                  "title": "Journey Version for an entity",
+                  "$ref": "https://ns.adobe.com/experience/campaign/orchestration/experienceevent#/definitions/journeyVersion",
+                  "description": "Schema for describing the version of a journey, where version holds the state machine."
+                },
+                "action": {
+                  "title": "Action associated with a journey",
+                  "$ref": "https://ns.adobe.com/experience/campaign/orchestration/experienceevent#/definitions/action",
+                  "description": "Action that is executed for an entity when reached a step in in the journey state machine.",
+                  "required":["xdm:actionID"]
+                }
+              },
+              "required":["journey", "journeyVersion", "action"],
+            }
           }
         },
         "https://ns.adobe.com/experience/campaign/containerID": {

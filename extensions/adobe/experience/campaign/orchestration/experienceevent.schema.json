@@ -73,31 +73,6 @@
           }
         }
       }
-    },
-    "journeyContext": {
-      "title": "A Journey Context",
-      "type": "object",
-      "description": "A journey context with which an entity is associated.",
-      "properties": {
-        "journey": {
-          "title": "Journey for an entity",
-          "$ref": "#/definitions/journey",
-          "description": "Journey created by marketer for its entities."
-        },
-        "journeyVersion": {
-          "title": "Journey Version for an entity",
-          "$ref": "#/definitions/journeyVersion",
-          "description": "Schema for describing the version of a journey, where version holds the state machine."
-        },
-        "action": {
-          "title": "Action associated with a journey",
-          "$ref": "#/definitions/journeyVersion",          
-          "description":
-            "Action that is executed for an entity when reached a step in in the journey state machine.",
-          "required":["xdm:actionID"]
-        }
-      },
-      "required":["journey", "journeyVersion", "action"]
     }
   },
   "allOf": [
@@ -109,9 +84,6 @@
     },
     {
       "$ref": "#/definitions/action"
-    },
-    {
-      "$ref": "#/definitions/journeyContext"
     }
   ],
   "meta:status": "stabilizing"
